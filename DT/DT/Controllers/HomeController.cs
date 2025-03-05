@@ -80,17 +80,14 @@ namespace DT.Controllers
         {
             List<string> subjectPool = new List<string>();
 
-            // Populate subject pool based on assigned hours
             foreach (var subject in model.Subjects)
             {
                 subjectPool.AddRange(Enumerable.Repeat(subject.Name, subject.Hours));
             }
 
-            // Shuffle subjects for randomness
             Random rand = new Random();
             subjectPool = subjectPool.OrderBy(_ => rand.Next()).ToList();
 
-            // Initialize timetable grid (Rows = SubjectsPerDay, Columns = WorkingDays)
             var timetable = new List<List<string>>();
 
             for (int i = 0; i < model.SubjectsPerDay; i++)
@@ -98,7 +95,6 @@ namespace DT.Controllers
                 timetable.Add(new List<string>(new string[model.WorkingDays]));
             }
 
-            // Fill the timetable column-wise (day-wise distribution)
             int index = 0;
             for (int col = 0; col < model.WorkingDays; col++)
             {
