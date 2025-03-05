@@ -11,7 +11,7 @@ function updateTotalHours() {
     document.getElementById('totalHours').value = totalHours > 0 ? totalHours : '';
 }
 
-function generateSubjectInputs() {
+function generateSubject() {
     let workingDays = parseInt(document.getElementById('workingDays').value);
     let subjectsPerDay = parseInt(document.getElementById('subjectsPerDay').value);
     let totalHours = workingDays * subjectsPerDay;
