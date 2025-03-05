@@ -52,6 +52,7 @@ namespace DT.Controllers
         }
 
         [HttpGet]
+        [Route("display-table")]
         public IActionResult Display(int id)
         {
             var timeTable = _context.TimeTables
