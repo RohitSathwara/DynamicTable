@@ -1,0 +1,37 @@
+﻿@model TimeTableViewModel
+
+@{
+    ViewData["Title"] = "Generated Timetable";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">Generated Timetable</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered text-center shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    @for (int i = 1; i <= Model.WorkingDays; i++)
+                    {
+                        <th>Day @i</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model.GeneratedTimeTable)
+                {
+                    <tr>
+                        @foreach (var subject in row)
+                        {
+                            <td class="align-middle fw-bold text-uppercase bg-light">@subject</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-primary px-4">Back to Create</a>
+    </div>
+</div>

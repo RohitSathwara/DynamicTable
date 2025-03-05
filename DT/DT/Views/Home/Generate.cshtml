@@ -1,0 +1,12 @@
+﻿@model List<List<TimeTableViewModel>>
+<table border="1">
+    @foreach (var row in Model)
+    {
+            <tr>
+            @foreach (var subject in row)
+            {
+                        <td>@subject</td>
+            }
+            </tr>
+    }
+</table>
